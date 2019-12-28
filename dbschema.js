@@ -1,15 +1,44 @@
 let db = {
-    posts: [
-        {
-            userHandle: 'user',
-            body: 'This is a post body',
-            createdAt: '2019-05-14T11:46:01:0182',
-            likeCount: 5,
-            commentCount: 2
-        }
-    ]
+  users: [
+    {
+      userId: 'dh23ggj5h32g543j5gf43',
+      email: 'user@email.com',
+      handle: 'user',
+      createdAt: '2019-03-15T10:59:52.798Z',
+      imageUrl: 'image/dsfsdkfghskdfgs/dgfdhfgdh',
+      bio: 'Hello, my name is user, nice to meet you',
+      website: 'https://user.com',
+      location: 'Lagos, Nigeria'
+    }
+  ],
+  posts: [
+    {
+      userHandle: 'user',
+      body: 'This is a sample post',
+      createdAt: '2019-03-15T10:59:52.798Z',
+      likeCount: 5,
+      commentCount: 3
+    }
+  ],
+  comments: [
+    {
+      userHandle: 'user',
+      postId: 'kdjsfgdksuufhgkdsufky',
+      body: 'nice one mate!',
+      createdAt: '2019-03-15T10:59:52.798Z'
+    }
+  ],
+  notifications: [
+    {
+      recipient: 'user',
+      sender: 'john',
+      read: 'true | false',
+      postId: 'kdjsfgdksuufhgkdsufky',
+      type: 'like | comment',
+      createdAt: '2019-03-15T10:59:52.798Z'
+    }
+  ]
 };
-
 const userDetails = {
   // Redux data
   credentials: {
@@ -25,11 +54,11 @@ const userDetails = {
   likes: [
     {
       userHandle: 'user',
-      screamId: 'hh7O5oWfWucVzGbHH2pa'
+      postId: 'hh7O5oWfWucVzGbHH2pa'
     },
     {
       userHandle: 'user',
-      screamId: '3IOnFoQexRcofs5OhBXO'
+      postId: '3IOnFoQexRcofs5OhBXO'
     }
   ]
 };
