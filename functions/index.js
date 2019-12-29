@@ -21,6 +21,8 @@ const {
     uploadImage , 
     addUserDetails,
     getAuthenticatedUser,
+    getUserDetails,
+    markNotificationsRead
 } = require('./handlers/users');
 
 //Post Routes
@@ -38,6 +40,9 @@ app.post('/login', login);
 app.post('/user/image', FBAuth, uploadImage);
 app.post('/user', FBAuth, addUserDetails);
 app.get('/user', FBAuth, getAuthenticatedUser);
+app.get('/user/:handle', getUserDetails);
+app.post('/notifications', FBAuth, markNotificationsRead);
+
 
 exports.api = functions.https.onRequest(app);
 
@@ -83,7 +88,7 @@ exports.deleteNotificationOnUnLike = functions
       });
   });
 
-  
+
 //creat notification for comments
 exports.createNotificationOnComment = functions
   .region('europe-west1')
