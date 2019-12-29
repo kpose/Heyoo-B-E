@@ -203,3 +203,27 @@ exports.unlikePost = (request, response) => {
         response.status(500).json({ error: err.code });
       });
   };
+
+  //delete a post
+exports.deletePost = (request, response) => {
+    const document = db.doc(`/posts/${request.params.postId}`);
+    document
+      .get()
+      .then((doc) => {
+        if (!doc.exists) {
+          return response.status(404).json({ error: 'post not found' });
+        }
+        if (doc.data().userHandle !== request.user.handle) {
+          return response.status(403).json({ error: 'Unauthorized' });
+        } else {
+          return document.delete();
+        }
+      })
+      .then(() => {
+        response.json({ message: 'post deleted successfully' });
+      })
+      .catch((err) => {
+        console.error(err);
+        return response.status(500).json({ error: err.code });
+      });
+  };
